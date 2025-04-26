@@ -1,122 +1,120 @@
-# AI-Powered Body Measurement & Apparel Sizing  
+# AI Body Measurement System
 
-This project is a **FastAPI-based AI system** that predicts **body measurements** and recommends **clothing sizes** using deep learning. It processes **front and side images**, removes backgrounds, and utilizes a trained **Keras model** for accurate predictions.  
+An advanced AI-powered system that accurately measures body dimensions and recommends clothing sizes using front and side view images.
 
----
+## Features
 
-## 📌 Features  
-✅ AI-powered **body measurement estimation** using images.  
-✅ Automatic **background removal** for clean image processing.  
-✅ Deep learning-based **predictions** using a trained model.  
-✅ **FastAPI integration** for quick and efficient API responses.  
+- Accurate body measurement prediction using AI
+- Background removal for clean image processing
+- Support for both male and female measurements
+- Clothing size recommendations (T-shirts and Pants)
+- Web-based interface for easy interaction
+- Real-time processing and results
 
----
+## Supported Measurements
 
+- Ankle
+- Arm Length
+- Bicep
+- Calf
+- Chest
+- Forearm
+- Height
+- Hip
+- Leg Length
+- Shoulder Breadth
+- Shoulder to Crotch
+- Thigh
+- Waist
+- Wrist
 
-## 🚀 Installation  
+## Prerequisites
 
-To set up the project, follow these steps:  
+- Python 3.8 or higher
+- Web browser
+- Camera or image capture device
 
-### **1️⃣ Clone the Repository**  
+## Installation
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/CloozyBrands/AI-BodyMeasurement.git
+git clone https://github.com/yourusername/AI-BodyMeasurement.git
+cd AI-BodyMeasurement
 ```
----
-### **2️⃣ Install Dependencies**  
+
+2. Create a virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-### **3️⃣ Run the FastAPI Server**  
+## Usage
+
+1. Start the server:
 ```bash
-uvicorn app.main:app --reload
-```
-Then open **http://127.0.0.1:8000/docs** to test the API.
-
----
-
-## 🛠️ How It Works  
-
-### **1️⃣ Upload Images**  
-- The API accepts **two images**:  
-  - **Front view**
-  - **Side view**  
-
-### **2️⃣ AI-Based Processing**  
-- The images are processed using **`single_person_processor.py`**, which:  
-  ✅ Removes the background using `rembg`.  
-  ✅ Converts the images into a **model-compatible format**.  
-  ✅ Predicts **body measurements** like chest, waist, and height.  
-
-### **3️⃣ Clothing Size Prediction**  
-- Based on the body measurements, the system suggests a **T-shirt and pants size** using predefined **size charts**.
-
----
-
-## 🔍 API Endpoints  
-
-### **1️⃣ `/predict/` (POST) - Predict Body Measurements**  
-📌 **Example Request:**  
-```http
-POST /predict/
+python main.py
 ```
 
-📌 **Request Parameters:**  
-| Parameter     | Type   | Description |
-|---------------|--------|-------------|
-| `front_image` | File   | Front view image (JPEG/PNG) |
-| `side_image`  | File   | Side view image (JPEG/PNG) |
-| `input_data`  | JSON   | User data (height, weight, gender) |
-
-📌 **Example JSON Payload:**  
-```json
-{
-  "gender": 0, 
-  "height_cm": 175, 
-  "weight_kg": 70, 
-  "apparel_type": "all"
-}
+2. Open your web browser and navigate to:
+```
+http://localhost:8000
 ```
 
-📌 **Example Response:**  
-```json
-{
-  "results": {
-    "body_measurements": {
-      "chest": 100.5,
-      "waist": 80.2,
-      "hip": 97.3
-    },
-    "tshirt_size": "L",
-    "pants_size": 34
-  }
-}
-```
+3. Upload front and side view images of the person
+4. Enter the required information:
+   - Gender (0 for male, 1 for female)
+   - Height (in cm)
+   - Weight (in kg)
+   - Apparel type (tshirt, pants, or all)
 
----
+5. Submit and receive measurements and size recommendations
 
-## 🎯 Model & AI Processing  
+## API Endpoints
 
-📌 The model used in this project is a **TensorFlow/Keras** model stored as `best_model.keras`.  
-📌 The AI processing is handled inside **`single_person_processor.py`**, which:  
-- Loads the trained model using `tf.keras.models.load_model`.  
-- Extracts measurements based on input images.  
-- Maps the measurements to standard clothing sizes.  
+- `GET /`: Web interface
+- `POST /predict/`: Prediction endpoint
+  - Accepts multipart form data with:
+    - front_image: Front view image
+    - side_image: Side view image
+    - input_data: JSON string containing gender, height, weight, and apparel type
 
----
+## Project Structure
 
-## 📜 License  
+- `main.py`: FastAPI server and endpoint definitions
+- `single_person_processor.py`: Core processing and prediction logic
+- `best_model.keras`: Trained AI model
+- `static/`: Static assets
+- `templete.html`: Web interface template
 
-This project is licensed under the **MIT License** – feel free to modify and use it.  
+## Rights and License
 
----
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🤝 Contributing  
+### Usage Rights
 
-1. Fork the repository  
-2. Create a new branch  
-3. Make your changes  
-4. Submit a pull request  
+- The AI model and code are provided for research and personal use
+- Commercial use requires explicit permission
+- The project maintainers reserve the right to modify and distribute the code
+- Users are responsible for ensuring proper usage and compliance with local laws
 
-We welcome contributions and improvements! 🚀  
-```
+### Attribution
+
+When using this project, please provide attribution to the original authors and include a link to the repository.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Support
+
+For support, please open an issue in the GitHub repository or contact the maintainers.
+
+## Acknowledgments
+
+- Thanks to all contributors who have helped improve this project
+- Special thanks to the open-source community for the tools and libraries used 
