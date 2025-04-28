@@ -1,7 +1,4 @@
-# single_person_processor.py
-
 import os
-
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Suppress TensorFlow warnings
 import io
 import logging
