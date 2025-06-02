@@ -1,15 +1,42 @@
-# AI Body Measurement System
+# Body Measurement System
 
-An advanced AI-powered system that accurately measures body dimensions and recommends clothing sizes using front and side view images.
+A simple system that measures body dimensions and suggests clothing sizes using front and side view photos.
 
 ## Features
 
-- Accurate body measurement prediction using AI
-- Background removal for clean image processing
-- Support for both male and female measurements
-- Clothing size recommendations (T-shirts and Pants)
-- Web-based interface for easy interaction
-- Real-time processing and results
+- Body measurements
+- Clothing size recommendations
+- Easy web interface
+
+## Setup
+
+1. Install requirements:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+2. Run the server:
+```bash
+python main.py
+```
+
+3. Open http://localhost:8000 in your browser
+
+## How to Use
+
+1. Upload front and side view photos
+2. Enter:
+   - Gender (0 for male, 1 for female)
+   - Height (cm)
+   - Weight (kg)
+   - Clothing type (shirt, pants, or all)
+3. Click measure to get results
+
+## License
+
+MIT License
 
 ## Supported Measurements
 
@@ -22,57 +49,23 @@ An advanced AI-powered system that accurately measures body dimensions and recom
 - Height
 - Hip
 - Leg Length
-- Shoulder Breadth
-- Shoulder to Crotch
+- Shoulder Width
+- Shoulder to Hip
 - Thigh
 - Waist
 - Wrist
 
-## Prerequisites
+## Support and Contributions
 
-- Python 3.8 or higher
-- Web browser
-- Camera or image capture device
+We welcome contributions! Feel free to open an issue or submit a pull request to help improve the project.
 
-## Installation
+## Project Structure
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/AI-BodyMeasurement.git
-cd AI-BodyMeasurement
-```
-
-2. Create a virtual environment (recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-1. Start the server:
-```bash
-python main.py
-```
-
-2. Open your web browser and navigate to:
-```
-http://localhost:8000
-```
-
-3. Upload front and side view images of the person
-4. Enter the required information:
-   - Gender (0 for male, 1 for female)
-   - Height (in cm)
-   - Weight (in kg)
-   - Apparel type (tshirt, pants, or all)
-
-5. Submit and receive measurements and size recommendations
+- `main.py`: Server and API endpoints
+- `single_person_processor.py`: Core measurement logic
+- `best_model.keras`: Measurement model
+- `static/`: Web interface files
+- `template.html`: Web page template
 
 ## API Endpoints
 
@@ -83,11 +76,6 @@ http://localhost:8000
     - side_image: Side view image
     - input_data: JSON string containing gender, height, weight, and apparel type
 
-## Project Structure
+## Rights and License
 
-- `main.py`: FastAPI server and endpoint definitions
-- `single_person_processor.py`: Core processing and prediction logic
-- `best_model.keras`: Trained AI model
-- `static/`: Static assets
-- `templete.html`: Web interface template
-
+This project is licensed under the MIT License - see the LICENSE file for details.
