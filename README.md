@@ -2,6 +2,8 @@
 
 A simple system that measures body dimensions and suggests clothing sizes using front and side view photos.
 
+[Uploading Screencast from 2025-04-26 18-02-00.webm…]()
+
 ## Features
 
 - Body measurements
