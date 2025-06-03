@@ -7,7 +7,10 @@ A simple system that measures body dimensions and suggests clothing sizes using 
 - Body measurements
 - Clothing size recommendations
 - Easy web interface
-- 
+
+## Demo 
+### for GUI after deployment the model with it
+
 [Screencast from 2025-04-26 18-02-00.webm](https://github.com/user-attachments/assets/7d9b662d-de3f-4cf1-9dbe-1aa26dde7baf)
 
 ## Setup
